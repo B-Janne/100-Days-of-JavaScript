@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Art Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h1>Pixel Art Generator</h1>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <!-- Tools -->
+      <div class="tool-buttons">
+        <button id="pencil" title="Pencil">
+          <i class="fa-solid fa-pencil"></i>
+        </button>
+        <button id="erase" title="Eraser">
+          <i class="fa-solid fa-eraser"></i>
+        </button>
+        <button id="clear" title="Clear">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+
+      <!-- Color Picker -->
+      <div class="color-dropdown">
+        <button id="colorPickerBtn" title="Color">
+          <span id="currentColorIndicator"></span>
+          Color ▼
+        </button>
+        <div class="color-dropdown-content" id="colorMenu">
+          <div class="color-grid">
+            <!-- Ready colors -->
+            <div
+              class="color-swatch"
+              style="background-color: #ff96ad"
+              data-color="#FF96AD"
+            ></div>
+            <div
+              class="color-swatch"
+              style="background-color: #005a8d"
+              data-color="#005A8D"
+            ></div>
+            <div
+              class="color-swatch"
+              style="background-color: #022e57"
+              data-color="#022E57"
+            ></div>
+            <div
+              class="color-swatch"
+              style="background-color: #ffd2a0"
+              data-color="#FFD2A0"
+            ></div>
+            <div
+              class="color-swatch"
+              style="background-color: #efb6c8"
+              data-color="#EFB6C8"
+            ></div>
+
+            <!-- Custom color -->
+            <div
+              class="color-swatch custom-color"
+              id="customColorTrigger"
+              title="Custom Color"
+            >
+              <span>+</span>
+            </div>
+            <!-- Custom color picker -->
+            <input type="color" id="hiddenCustomColor" style="display: none" />
+          </div>
+
+          <!-- Clear color -->
+          <div class="menu-item" id="clearColorBtn">Clear color</div>
+        </div>
+      </div>
+
+      <!-- Size Menu -->
+      <div class="menu-wrapper">
+        <button id="sizeMenuBtn" title="Size">
+          <span id="sizeLabel">Size</span> ▼
+        </button>
+        <div id="sizeMenu" class="menu">
+          <div class="preset-list">
+            <div class="preset-item" data-size="16">16 × 16</div>
+            <div class="preset-item" data-size="32">32 × 32</div>
+            <div class="preset-item" data-size="64">64 × 64</div>
+          </div>
+          <hr />
+          <div class="custom-section">
+            <label for="customWidth"
+              >Width: <span id="widthValue">16</span></label
+            >
+            <input type="range" id="customWidth" min="8" max="64" value="16" />
+
+            <label for="customHeight"
+              >Height: <span id="heightValue">16</span></label
+            >
+            <input type="range" id="customHeight" min="8" max="64" value="16" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Scale Menu -->
+      <div class="menu-wrapper">
+        <button id="scaleMenuBtn" title="Scale">
+          <span id="scaleLabel">Scale</span> ▼
+        </button>
+        <div id="scaleMenu" class="menu">
+          <div class="preset-list">
+            <div class="preset-item" data-scale="10">×10</div>
+            <div class="preset-item" data-scale="20">×20</div>
+            <div class="preset-item" data-scale="30">×30</div>
+          </div>
+          <hr />
+          <div class="custom-section">
+            <label for="customScale"
+              >Scale: <span id="scaleValue">10</span></label
+            >
+            <input type="range" id="customScale" min="5" max="40" value="10" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Canvas Area -->
+    <div id="pixelCanvas"></div>
+
+    <!-- link to external JS (defer so DOM is ready) -->
+    <script src="script.js" defer></script>
+    <!-- Iro.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+  </body>
+</html>

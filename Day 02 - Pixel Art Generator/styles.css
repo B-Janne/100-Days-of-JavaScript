@@ -1,0 +1,308 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #fff5fd; /* soft blush background */
+  margin: 0;
+  padding: 20px;
+  color: #022e57; /* deep navy text */
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #022e57;
+}
+
+/* Toolbar layout */
+.toolbar {
+  display: flex;
+  justify-content: center; /* Centers children horizontally */
+  align-items: center; /* Centers children vertically */
+  gap: 15px;
+  background: #005a8d; /* rich blue */
+  padding: 10px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(2, 46, 87, 0.15);
+  margin: 0 auto 20px; /* Centered horizontally with auto margins */
+  width: 75%;
+  min-width: 400px;
+  max-width: 600px;
+}
+
+@media (max-width: 500px) {
+  .toolbar {
+    flex-wrap: wrap; /* allow wrapping on small screens */
+    width: 95%; /* make it fit the screen */
+    min-width: unset;
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+/* Ensure all toolbar children are flex items */
+.toolbar > * {
+  flex: 0 0 auto; /* Don't grow, don't shrink, auto basis */
+  margin: 0; /* Remove any default margins */
+}
+
+/* Add this if you want equal spacing */
+.tool-buttons,
+.control-group,
+.menu-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Tool buttons */
+.tool-buttons button {
+  background: #ff96ad; /* bright pink */
+  border: none;
+  padding: 10px 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.tool-buttons button:hover {
+  background: #022e57; /* deep navy hover */
+  transform: scale(1.05);
+}
+
+/* Active tool highlight */
+.tool-buttons button.active {
+  background: #022e57;
+  transform: scale(1.05);
+}
+
+.tool-buttons i {
+  pointer-events: none;
+}
+
+/* Inputs */
+input[type="color"],
+input[type="number"] {
+  border: none;
+  padding: 5px;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(2, 46, 87, 0.15);
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  color: #fff5fd;
+}
+
+.menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-wrapper button {
+  background: #ff96ad;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu-wrapper button:hover {
+  background: #022e57;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: #fff5fd;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(2, 46, 87, 0.15);
+  z-index: 10;
+  min-width: 180px;
+}
+
+.menu.open {
+  display: block;
+}
+
+.preset-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.preset-item {
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.preset-item:hover {
+  color: #ff96ad;
+}
+
+.custom-section {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-section label {
+  font-size: 0.85rem;
+  color: #022e57;
+}
+
+.custom-section input[type="range"] {
+  width: 100%;
+}
+
+/* .toolbar button,
+.toolbar input[type="color"],
+.toolbar input[type="number"] {
+  height: 40px;
+  font-size: 16px;
+  padding: 0 12px; /* uniform horizontal padding
+  box-sizing: border-box;
+} */
+
+/* Canvas area */
+
+#pixelCanvas {
+  display: grid;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 4px 10px rgba(2, 46, 87, 0.1);
+  overflow: visible; /* ensure no internal scrolling */
+}
+
+.pixel-cell {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.color-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.color-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.color-dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px;
+  z-index: 10;
+  width: 160px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-swatch span {
+  font-weight: bold;
+  font-size: 18px;
+  color: #555;
+}
+
+.custom-color {
+  background: transparent;
+  border: 1px dashed #ccc;
+}
+
+.menu-item {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #f0f0f0;
+}
+
+#colorPickerBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ff96ad;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+#colorPickerBtn:hover {
+  background: #022e57;
+}
+
+#currentColorIndicator {
+  display: inline-block;
+  background-color: #ff96ad; /* default color */
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid white;
+  border-radius: 4px;
+}
+
+#customColorPanel {
+  display: none;
+  position: absolute;
+  margin-top: 5px; /* space below main button */
+  background: white;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+.color-swatch.custom-color {
+  border: 2px dashed #aaa;
+  background: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 28px;
+}
+
+.color-dropdown-content.open {
+  display: block;
+}
