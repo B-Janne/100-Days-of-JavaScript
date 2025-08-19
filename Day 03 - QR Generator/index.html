@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Include QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <div class="container">
+      <div class="header">
+        <h1>QR Code Generator</h1>
+        <p>Generate QR codes instantly for any text or URL</p>
+      </div>
+
+      <div class="error-message" id="errorMessage"></div>
+      <div class="success-message" id="successMessage"></div>
+
+      <div class="main-content">
+        <div class="settings-panel">
+          <div class="settings-title">Settings</div>
+
+          <div class="form-section">
+            <div class="form-group">
+              <label for="textInput">Enter Text or URL</label>
+              <div class="input-container">
+                <textarea
+                  id="textInput"
+                  placeholder="Enter your text, URL, or any data you want to encode..."
+                  rows="4"
+                  style="
+                    resize: vertical;
+                    min-height: 100px;
+                    font-family: inherit;
+                  "
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="options-grid">
+              <div class="form-group">
+                <label for="sizeSelect">QR Code Size</label>
+                <select id="sizeSelect">
+                  <option value="200">Small (200x200)</option>
+                  <option value="300" selected>Medium (300x300)</option>
+                  <option value="400">Large (400x400)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="errorCorrectionSelect">Error Correction</label>
+                <select id="errorCorrectionSelect">
+                  <option value="L">Low</option>
+                  <option value="M" selected>Medium</option>
+                  <option value="Q">Quartile</option>
+                  <option value="H">High</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <button type="button" id="generateBtn" class="btn-primary">
+                Generate QR Code
+              </button>
+              <button type="button" id="clearBtn" class="btn-light">
+                Clear
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-section" id="resultSection">
+          <div id="qrResult">
+            <div class="placeholder">
+              <div class="placeholder-icon">📱</div>
+              <div>Your QR code will appear here</div>
+            </div>
+          </div>
+
+          <div class="download-section" id="downloadSection">
+            <div class="button-group">
+              <button type="button" id="downloadBtn" class="btn-primary">
+                Download PNG
+              </button>
+              <button type="button" id="copyBtn" class="btn-yellow">
+                Copy to Clipboard
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
