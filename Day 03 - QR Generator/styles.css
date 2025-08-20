@@ -11,7 +11,7 @@
   --accent-color: #3fa2f6;
   --light-accent: #96c9f4;
   --text-primary: #0f67b1;
-  --text-secondary: #0f67b1;
+  --text-secondary: #64748b;
   --border-color: #96c9f4;
   --success-color: #27ae60;
   --error-color: #e74c3c;
@@ -35,7 +35,7 @@ body {
   background: white;
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
-  padding: 2rem;
+  padding: 1.5rem;
   width: 100%;
   max-width: 1000px;
   position: relative;
@@ -54,14 +54,14 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .header h1 {
   color: var(--text-primary);
   font-size: 2.25rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .header p {
@@ -70,7 +70,7 @@ body {
 }
 
 .form-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .main-content {
@@ -82,7 +82,7 @@ body {
 
 .settings-panel {
   background: white;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   display: flex;
@@ -93,19 +93,14 @@ body {
   color: var(--text-primary);
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.settings-title::before {
-  content: "⚙️";
-  font-size: 1.1rem;
-}
-
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.85rem;
 }
 
 label {
@@ -213,6 +208,7 @@ button {
 .btn-light:hover {
   background: var(--light-accent);
   transform: translateY(-1px);
+  olor: var(--text-primary);
 }
 
 .btn-secondary:disabled {
@@ -226,7 +222,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.25rem;
   background: white;
   border-radius: var(--border-radius);
   border: 2px dashed var(--border-color);
@@ -241,7 +237,7 @@ button {
 }
 
 #qrResult {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 #qrResult canvas {
@@ -267,7 +263,7 @@ button {
 
 .download-section {
   display: none;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   width: 100%;
 }
 
@@ -326,7 +322,7 @@ button {
 
   .container {
     margin: 1rem;
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .header h1 {
