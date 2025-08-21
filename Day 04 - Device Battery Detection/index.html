@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Device Battery Status</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Device Battery Status</h1>
+        <p>Check your device's battery level and status</p>
+      </header>
+
+      <main>
+        <div class="battery-container">
+          <div class="battery">
+            <div class="battery-tip"></div>
+            <div class="battery-body">
+              <div class="battery-level" id="battery-level"></div>
+            </div>
+          </div>
+          <div class="battery-percentage" id="battery-percentage">--%</div>
+        </div>
+
+        <div class="status-info">
+          <div class="status-item">
+            <span class="label">Charging:</span>
+            <span class="value" id="charging-status">--</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Battery Level:</span>
+            <span class="value" id="level-status">--</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Charging Time:</span>
+            <span class="value" id="charging-time">--</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Discharging Time:</span>
+            <span class="value" id="discharging-time">--</span>
+          </div>
+        </div>
+
+        <div class="battery-actions">
+          <button id="refresh-btn" class="btn">Refresh Status</button>
+        </div>
+
+        <div class="not-supported" id="not-supported">
+          <p>⚠️ Battery Status API is not supported in your browser.</p>
+          <p>Try using Chrome, Edge, or another modern browser.</p>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
