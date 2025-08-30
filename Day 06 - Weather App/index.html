@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App - Time Zone Support</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+</html>
+</head>
+<body>
+    <div class="app-header">
+        <div class="app-title">
+            <i class="fas fa-cloud-sun"></i>
+            <h1>Weather Forecast</h1>
+        </div>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Search for any city worldwide..." id="city-input">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="suggestions-box" id="suggestions">
+                <!-- Suggestions will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="weather-container">
+        <div class="main-weather-card">
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p>Loading weather data...</p>
+            </div>
+            
+            <div class="error" id="error">
+                <p>City not found. Please try again.</p>
+            </div>
+            
+            <div class="weather-content" id="weather-content">
+                <div class="weather-icon-container">
+                    <i class="fas fa-sun weather-icon" id="weather-icon"></i>
+                </div>
+                
+                <div class="weather-info">
+                    <div class="temperature" id="temp">24°C</div>
+                    <div class="weather-type" id="weather-type">Sunny</div>
+                    <div class="location" id="city-name">New York</div>
+                    <div class="date" id="date">Monday, June 12, 2023</div>
+                </div>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail-item">
+                    <i class="fas fa-temperature-high"></i>
+                    <div class="detail-value" id="feels-like">26°C</div>
+                    <div class="detail-label">Feels Like</div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-tint"></i>
+                    <div class="detail-value" id="humidity">65%</div>
+                    <div class="detail-label">Humidity</div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-wind"></i>
+                    <div class="detail-value" id="wind-speed">5 km/h</div>
+                    <div class="detail-label">Wind Speed</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="side-cards">
+            <div class="hourly-card">
+              <h3 class="hourly-title">Today's Forecast</h3>
+              <div class="hourly-items" id="hourly-items">
+                  <!-- Hourly items will be added dynamically -->
+              </div>
+          </div>
+
+            <div class="forecast-card">
+                <h3 class="forecast-title">3-Day Forecast</h3>
+                <div class="forecast-items" id="forecast-items">
+                    <!-- Forecast items will be added dynamically -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+<script src="script.js"></script>
+  </body>
+  </html>
